@@ -9,7 +9,7 @@ class RootClass(object):
         resp.body = json.dumps(msg)
     def on_post(self, req, resp):
         body = json.loads(req.stream.read().decode('utf-8'))
-        print(body['user'])
+        print(body['data'])
         msg = {
             "message": "Welcome to the Falcon"
         }
