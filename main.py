@@ -1,6 +1,7 @@
 import json
 import falcon
 import hierarchical_clustering
+import k_means
 
 class RootClass(object):
     def on_get(self, req, resp):
@@ -10,8 +11,7 @@ class RootClass(object):
         resp.body = json.dumps(msg)
     def on_post(self, req, resp):
         body = json.loads(req.stream.read().decode('utf-8'))
-        # print(body['data'])
-        hierarchical_clustering.clustering(body['data'])
+        k_means.clustering(body['data'])
         msg = {
             "message": "Welcome to the Falcon"
         }
