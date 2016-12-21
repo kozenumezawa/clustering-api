@@ -24,7 +24,7 @@ class CORSMiddleware:
         resp.set_header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
 
 api = falcon.API(middleware=[CORSMiddleware()])
-api.add_route('/api/v1/hierarchical', RootClass())
+api.add_route('/api/v1/kmeans', RootClass())
 
 if __name__ == "__main__":
     from wsgiref import simple_server
