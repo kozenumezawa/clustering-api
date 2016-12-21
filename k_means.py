@@ -5,7 +5,9 @@ def clustering(allTimeSeries, nClusters):
     allTimeSeries = np.array(allTimeSeries)
 
     kmeans_model = KMeans(n_clusters=nClusters, random_state=10).fit(allTimeSeries)
-    labels = kmeans_model.labels_
+    kmeansLabels = kmeans_model.labels_
 
-    for label, feature in zip(labels, allTimeSeries):
-        print(label, feature, feature.sum())
+    responseMsg = {
+        "labels": kmeansLabels.tolist()
+    }
+    return responseMsg

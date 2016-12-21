@@ -11,10 +11,7 @@ class RootClass(object):
         resp.body = json.dumps(msg)
     def on_post(self, req, resp):
         body = json.loads(req.stream.read().decode('utf-8'))
-        k_means.clustering(body['data'], body['n_clusters'])
-        msg = {
-            "message": "Welcome to the Falcon"
-        }
+        msg = k_means.clustering(body['data'], body['n_clusters'])
         resp.body = json.dumps(msg)
         resp.status = falcon.HTTP_200
 
