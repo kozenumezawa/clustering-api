@@ -23,6 +23,8 @@ POST: /api/v1/kmeans
 labelsはクラスタリングした結果が一次元配列で格納される
 averageはクラスタリング後の各クラスタの時系列データの平均値が格納される
 
+- example
+
 # Requirements
 - SciPy
 - sklearn

@@ -1,13 +1,15 @@
-def clustering(allTimeSeries, nClusters):
+def clustering(all_time_series, n_clusters):
     import numpy as np
     from sklearn.cluster import KMeans
 
-    allTimeSeries = np.array(allTimeSeries)
+    all_time_series = np.array(all_time_series)
 
-    kmeans_model = KMeans(n_clusters=nClusters, random_state=10).fit(allTimeSeries)
-    kmeansLabels = kmeans_model.labels_
+    kmeans_model = KMeans(n_clusters=n_clusters, random_state=10).fit(all_time_series)
+    kmeans_labels = kmeans_model.labels_
+
+    # calculate each average
 
     responseMsg = {
-        "labels": kmeansLabels.tolist()
+        "labels": kmeans_labels.tolist()
     }
     return responseMsg
