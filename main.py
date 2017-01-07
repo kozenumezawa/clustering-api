@@ -3,12 +3,11 @@ import falcon
 import hierarchical_clustering
 import k_means
 
+n_clusters = 0
 class RootClass(object):
     def on_get(self, req, resp):
-        msg = {
-            "message": "Welcome to the Falcon"
-        }
-        resp.body = json.dumps(msg)
+        name = req.get_header('n_clusters')
+        
     def on_post(self, req, resp):
         body = json.loads(req.stream.read().decode('utf-8'))
         msg = k_means.clustering(body['data'], body['n_clusters'])
