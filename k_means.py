@@ -24,7 +24,7 @@ def clustering(all_time_series, n_clusters):
         for (j, scalar) in enumerate(time_series):
             average_time_series[cluster_number][j] += scalar
 
-    ## calculatea average 
+    ## calculatea average
     np_average_time_series = np.array(average_time_series)
     for i in range(len(clustering_frequency)):
         np_average_time_series[i] /= clustering_frequency[i]
